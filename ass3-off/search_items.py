@@ -13,14 +13,14 @@ def search_name(item_dict):
     # Loop through the list and append the item name if it meet the condition
     for k, v in item_dict.items():
         if name == item_dict[k][0].lower() or item_dict[k][0].lower().find(name) != -1:
-            name_lst.append(item_dict[k][0])
+            name_lst.append([item_dict[k][0], k])
 
     # Check if the store has the items the customer looking for or not
     if len(name_lst) == 0:
         print('Sorry we dont have what you are looking for in the store')
     else:
-        for name in name_lst:
-            print(f'Name: {name}')
+        for item in name_lst:
+            print(f'ID: {item[1]}      Name: {item[0]}')
 
 
 # Function to search item by ID
